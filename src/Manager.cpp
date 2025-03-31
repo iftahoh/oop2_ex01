@@ -21,8 +21,8 @@ void Manager::run() const
 		std::cin >> input;
 		if (input == "eval")
 		{
-			int funcion, matrixSize;
-			std::cin >> funcion >> matrixSize;
+			int func, matrixSize;
+			std::cin >> func >> matrixSize;
 			SquaredMatrix matrix(matrixSize);
 			std::cout << std::endl;
 			matrix.print();
