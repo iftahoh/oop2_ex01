@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "Functions.h"
 #include "SquaredMatrix.h"
@@ -14,5 +15,7 @@ private:
 	int m_func;
 	int m_matrixSize;
 
-	std::shared_ptr<Functions> m_functions;
+	std::vector<SquaredMatrix> m_matrices;
+	std::vector<std::shared_ptr<Functions>> m_functions;
+	void printCurrFunc() const;
 };

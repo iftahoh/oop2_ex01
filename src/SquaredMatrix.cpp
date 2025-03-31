@@ -37,6 +37,12 @@ void SquaredMatrix::print() const {
 }
 
 //---------------------------------------------------------
+const int SquaredMatrix::getSize() const
+{
+	return m_n;
+}
+
+//---------------------------------------------------------
 void SquaredMatrix::setMatrix() {
 	//reading data from user
 	std::cout << "Enter matrix elements: " << std::endl;

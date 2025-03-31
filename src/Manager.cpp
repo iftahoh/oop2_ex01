@@ -1,7 +1,12 @@
 #include "Manager.h"
+#include "Id.h"
+//#include "Transfer.h"
 
 //---------------------------------------------------------
 Manager::Manager() {
+	//default functions
+	m_functions.push_back(std::make_shared<Id>());
+	//m_functions = std::make_shared<Transfer>();
 }
 
 //---------------------------------------------------------
@@ -13,7 +18,9 @@ void Manager::run() const
 {
 	while (1)
 	{
+		//list of available matrix operations
 		std::cout << "List of available matrix operations:" << std::endl;
+		printCurrFunc();
 		//list of functions
 		std::cout << "Enter command ('help' for the list of available commands):" << std::endl;
 		//get input from user until pressed enter
@@ -22,12 +29,8 @@ void Manager::run() const
 		if (input == "eval")
 		{
 			int func, matrixSize;
-			std::cin >> func >> matrixSize;
-			SquaredMatrix matrix(matrixSize);
-			std::cout << std::endl;
-			matrix.print();
-			//userInput >> m_func >> m_matrixSize;
-			//eval(m_func, m_matrixSize);
+			std::cin >> func;
+			m_functions[func]->run();
 		}
 		else if (input == "scal")
 		{
@@ -62,5 +65,16 @@ void Manager::run() const
 			std::cout << "Goodbye" << std::endl;
 			break;
 		}
+	}
+}
+
+//---------------------------------------------------------
+void Manager::printCurrFunc() const
+{
+	std::cout << "Current functions:" << std::endl;
+	for (int i = 0; i < m_functions.size(); i++)
+	{
+		std::cout << i << ". ";
+		m_functions[i]->print();
 	}
 }
