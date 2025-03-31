@@ -26,5 +26,8 @@ void Id::run() const
 
 void Id::printId(const SquaredMatrix matrix) const
 {
+	std::cout << "Id (" << std::endl;
+	matrix.print();
+	std::cout << ") =" << std::endl;
 	matrix.print();
 }
