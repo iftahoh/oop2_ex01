@@ -28,7 +28,7 @@ void Manager::run() const
 		std::cin >> input;
 		if (input == "eval")
 		{
-			int func, matrixSize;
+			int func;
 			std::cin >> func;
 			m_functions[func]->run();
 		}
