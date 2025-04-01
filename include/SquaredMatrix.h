@@ -10,6 +10,8 @@ public:
 	const int getSize() const;
 
 	//operators
+	const std::vector<int>& operator[](size_t index) const;
+	std::vector<int>& operator[](size_t index);
 	//*scal
 	//+
 	//-

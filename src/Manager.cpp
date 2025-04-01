@@ -1,12 +1,12 @@
 #include "Manager.h"
 #include "Id.h"
-//#include "Transfer.h"
+#include "Transfer.h"
 
 //---------------------------------------------------------
 Manager::Manager() {
 	//default functions
 	m_functions.push_back(std::make_shared<Id>());
-	//m_functions = std::make_shared<Transfer>();
+	m_functions.push_back(std::make_shared<Transfer>());
 }
 
 //---------------------------------------------------------

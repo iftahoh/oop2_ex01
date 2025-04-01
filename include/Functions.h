@@ -8,7 +8,8 @@ public:
 	~Functions();
 	
 	virtual void print() const = 0;
-	virtual void run() const = 0;
+	virtual void run() const = 0; \
+		virtual void printTransMatrix(const SquaredMatrix& matrix) const;
 private:
 
 };
