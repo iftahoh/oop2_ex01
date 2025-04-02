@@ -1,6 +1,7 @@
 #include "Manager.h"
 #include "Id.h"
 #include "Transfer.h"
+#include "Scal.h"
 
 //---------------------------------------------------------
 Manager::Manager() {
@@ -14,8 +15,9 @@ Manager::~Manager() {
 }
 
 //---------------------------------------------------------
-void Manager::run() const
+void Manager::run() 
 {
+
 	while (1)
 	{
 		//list of available matrix operations
@@ -34,6 +36,9 @@ void Manager::run() const
 		}
 		else if (input == "scal")
 		{
+			int scalar;
+			std::cin >> scalar;
+			m_functions.push_back(std::make_shared<Scal>(scalar));
 		}
 		else if (input == "add")
 		{
@@ -46,6 +51,11 @@ void Manager::run() const
 		}
 		else if (input == "del")
 		{
+			int func;
+			std::cin >> func;
+			if (func >= 0 && func < m_functions.size()) {
+				m_functions.erase(m_functions.begin() + func);
+			}
 		}
 		else if (input == "help")
 		{
@@ -77,4 +87,18 @@ void Manager::printCurrFunc() const
 		std::cout << i << ". ";
 		m_functions[i]->print();
 	}
+}
+
+SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs)
+{
+	int size = lhs.getSize();
+	SquaredMatrix result(size);
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			result[i][j] = lhs[i][j] + rhs[i][j];
+		}
+	}
+	return result;
 }

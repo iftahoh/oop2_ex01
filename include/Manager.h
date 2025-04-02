@@ -8,7 +8,7 @@ public:
 	Manager(); // add ID and TRANSFER as Default functions
 	~Manager();
 
-	void run() const;
+	void run() ;
 
 private:
 	std::string m_command;
@@ -19,3 +19,5 @@ private:
 	std::vector<std::shared_ptr<Functions>> m_functions;
 	void printCurrFunc() const;
 };
+
+SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs);
