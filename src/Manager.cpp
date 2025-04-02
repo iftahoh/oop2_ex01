@@ -2,6 +2,7 @@
 #include "Id.h"
 #include "Transfer.h"
 #include "Scal.h"
+#include "Add.h"
 
 //---------------------------------------------------------
 Manager::Manager() {
@@ -32,7 +33,7 @@ void Manager::run()
 		{
 			int func;
 			std::cin >> func;
-			m_functions[func]->run();
+			m_functions[func]->run(m_matrices);
 		}
 		else if (input == "scal")
 		{
@@ -42,12 +43,16 @@ void Manager::run()
 		}
 		else if (input == "add")
 		{
+			int func1, func2;
+			std::cin >> func1 >> func2;
+			m_functions.push_back(std::make_shared<Add>(m_functions[func1], m_functions[func2]));
 		}
 		else if (input == "sub")
 		{
 		}
 		else if (input == "comp")
 		{
+				
 		}
 		else if (input == "del")
 		{
@@ -86,19 +91,8 @@ void Manager::printCurrFunc() const
 	{
 		std::cout << i << ". ";
 		m_functions[i]->print();
+		std::cout << std::endl;
 	}
 }
 
-SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs)
-{
-	int size = lhs.getSize();
-	SquaredMatrix result(size);
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = 0; j < size; j++)
-		{
-			result[i][j] = lhs[i][j] + rhs[i][j];
-		}
-	}
-	return result;
-}
+

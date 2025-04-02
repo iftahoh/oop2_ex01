@@ -16,7 +16,7 @@ void Functions::printTransMatrix(const SquaredMatrix& matrix) const
 	{
 		for (int j = 0; j < matrix.getSize(); j++)
 		{
-			std::cout << matrix[j][i] << " ";
+			std::cout << matrix[i][j] << " ";
 		}
 		std::cout << std::endl;
 	}

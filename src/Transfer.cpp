@@ -8,28 +8,30 @@ Transfer::~Transfer()
 {
 }
 
-void Transfer::run() const
+void Transfer::run(std::vector<SquaredMatrix>& matrices) const
 {
 	int matrixSize;
 	std::cin >> matrixSize;
 	SquaredMatrix matrix(matrixSize);
-	SquaredMatrix temp = matrix;
+	SquaredMatrix transMatrix = matrix;
 	for (int i = 0; i < matrix.getSize(); i++)
 	{
 		for (int j = 0; j < matrix.getSize(); j++)
 		{
-			matrix[i][j] = temp[j][i];
+			transMatrix[i][j] = matrix[j][i];
 		}
 	}
 	std::cout << "tran (" << std::endl;
-	printTransMatrix(temp);
-	std::cout << ") = " << std::endl;
 	printTransMatrix(matrix);
+	std::cout << ") = " << std::endl;
+	printTransMatrix(transMatrix);
+	matrices.push_back(transMatrix);
+
 }
 
 void Transfer::print() const
 {
-	std::cout << "Transfer" << std::endl;
+	std::cout << "Transfer";
 }
 
 

@@ -11,15 +11,16 @@ Id::~Id() {
 
 void Id::print() const
 {
-	std::cout << "Id" << std::endl;
+	std::cout << "Id";
 }
 
-void Id::run() const
+void Id::run(std::vector<SquaredMatrix>& matrices) const
 {
 	int matrixSize;
 	std::cin >> matrixSize;
 	SquaredMatrix matrix(matrixSize);
 	printId(matrix);
+	matrices.push_back(matrix);
 }
 
 //---------------------------------------------------------
