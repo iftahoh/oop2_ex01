@@ -20,4 +20,3 @@ private:
 	void printCurrFunc() const;
 };
 
-SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs);

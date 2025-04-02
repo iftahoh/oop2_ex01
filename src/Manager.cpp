@@ -88,17 +88,3 @@ void Manager::printCurrFunc() const
 		m_functions[i]->print();
 	}
 }
-
-SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs)
-{
-	int size = lhs.getSize();
-	SquaredMatrix result(size);
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = 0; j < size; j++)
-		{
-			result[i][j] = lhs[i][j] + rhs[i][j];
-		}
-	}
-	return result;
-}

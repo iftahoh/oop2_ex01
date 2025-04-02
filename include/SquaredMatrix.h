@@ -12,12 +12,11 @@ public:
 	//operators
 	const std::vector<int>& operator[](size_t index) const;
 	std::vector<int>& operator[](size_t index);
-	//*scal
-	//+
-	//-
 
 private:
 	int m_n;
 	std::vector<std::vector<int>> m_matrix;
 	void setMatrix();
 };
+
+SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs);
