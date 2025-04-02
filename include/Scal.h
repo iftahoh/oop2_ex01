@@ -6,8 +6,10 @@ public:
 	
 	Scal(int scalar);
 	~Scal();
-	void run() const override;
+	void run(std::vector<SquaredMatrix>& matrices) const override;
 	void print() const override;
+	std::shared_ptr<Functions> clone() const override { return std::make_shared<Scal>(*this); }
+
 
 private:
 	int m_scalar;

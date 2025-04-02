@@ -2,16 +2,16 @@
 
 
 
-Scal::Scal(int scalar)
+Scal::Scal(int scalar) : m_scalar(scalar)
 {
-	m_scalar = scalar;
+	setNumOfMatrix(1);
 }
 
 Scal::~Scal()
 {
 }
 
-void Scal::run() const
+void Scal::run(std::vector<SquaredMatrix>& matrices) const
 {
 	int matrixSize = 0;
 	std::cin >> matrixSize;
@@ -33,7 +33,7 @@ void Scal::run() const
 
 void Scal::print() const
 {
-	std::cout << "Scal " << m_scalar << std::endl;
+	std::cout << "Scal " << m_scalar;
 }
 
 
