@@ -2,19 +2,7 @@
 
 //---------------------------------------------------------
 SquaredMatrix::SquaredMatrix(int n) : m_n(n) {
-	//creating matrix
-	m_matrix.resize(m_n);
-	for (int i = 0; i < m_n; i++) {
-		m_matrix[i].resize(m_n);
-	}
-	//default values
-	for (int i = 0; i < m_n; i++) {
-		for (int j = 0; j < m_n; j++) {
-			m_matrix[i][j] = 0;
-		}
-	}
-	//reading data from user
-	setMatrix();
+	m_matrix.resize(n, std::vector<int>(n, 0));
 }
 
 //---------------------------------------------------------
@@ -75,3 +63,18 @@ SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs)
 	}
 	return result;
 }
+//---------------------------------------------------------
+SquaredMatrix operator-(const SquaredMatrix& lhs, const SquaredMatrix& rhs)
+{
+	int size = lhs.getSize();
+	SquaredMatrix result(size);
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			result[i][j] = lhs[i][j] - rhs[i][j];
+		}
+	}
+	return result;
+}
+	

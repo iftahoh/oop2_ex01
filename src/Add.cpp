@@ -1,5 +1,5 @@
 #include "Add.h"
-#include "Add.h"
+
 
 //---------------------------------------------------------
 Add::Add(std::shared_ptr<Functions>& func1, std::shared_ptr<Functions>& func2)
@@ -16,15 +16,32 @@ Add::~Add()
 }
 
 //---------------------------------------------------------
-void Add::run(std::vector<SquaredMatrix>& matrices) const
+void Add::run(std::vector<SquaredMatrix>& matrices) 
 {
-	m_addFunctions[0]->run(matrices);
-	m_addFunctions[1]->run(matrices);
+	print();
+	m_addFunctions[0]->run1(matrices[0], matrices);
+	m_addFunctions[1]->run1(matrices[1], matrices);
+	SquaredMatrix resultMatrix(matrices[0].getSize());
+	resultMatrix = matrices[0] + matrices[1];
+	std::cout << " = " << std::endl;
+	printTransMatrix(resultMatrix);
+}
 
+void Add::run1(SquaredMatrix& mat, std::vector<SquaredMatrix>& matrices)
+{
+	print();
+	m_addFunctions[0]->run1(mat, matrices);
+	m_addFunctions[1]->run1(mat, matrices);
+	SquaredMatrix resultMatrix(matrices[0].getSize());
+	resultMatrix = matrices[0] + matrices[1];
+	std::cout << std::endl;
+	std::cout << " = " << std::endl;
+	printTransMatrix(resultMatrix);
 }
 
 void Add::print() const
-{
+{	
+	std::cout << "(";
 	for (int index = 0; index < m_addFunctions.size(); index++)
 	{
 		m_addFunctions[index]->print();
@@ -33,6 +50,7 @@ void Add::print() const
 			std::cout << " + ";
 		}
 	}
+	std::cout << ") ";
 }
 
 

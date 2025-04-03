@@ -20,3 +20,4 @@ private:
 };
 
 SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs);
+SquaredMatrix operator-(const SquaredMatrix& lhs, const SquaredMatrix& rhs);

@@ -18,5 +18,8 @@ private:
 	std::vector<SquaredMatrix> m_matrices;
 	std::vector<std::shared_ptr<Functions>> m_functions;
 	void printCurrFunc() const;
+	void printNumOfMatrix(int num) const;
+	void inputMatrix(int numOfMatrix, int matricsSize);
+	void printHelp();
 };
 
