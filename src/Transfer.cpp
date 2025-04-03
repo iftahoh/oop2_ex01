@@ -5,10 +5,12 @@ Transfer::Transfer()
 	setNumOfMatrix(1);
 }
 
+//----------------------------------------------------------
 Transfer::~Transfer()
 {
 }
 
+//----------------------------------------------------------
 void Transfer::run(std::vector<SquaredMatrix>& matrices) 
 {
 	
@@ -28,6 +30,7 @@ void Transfer::run(std::vector<SquaredMatrix>& matrices)
 
 }
 
+//----------------------------------------------------------
 void Transfer::run1(SquaredMatrix& mat, std::vector<SquaredMatrix>& matrices)
 {
 	SquaredMatrix transMatrix = mat;
@@ -44,13 +47,8 @@ void Transfer::run1(SquaredMatrix& mat, std::vector<SquaredMatrix>& matrices)
 	mat = transMatrix;
 }
 
+//----------------------------------------------------------
 void Transfer::print() const
 {
 	std::cout << "Transfer";
 }
-
-
-
-
-
-

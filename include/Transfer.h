@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "Functions.h"
 
 class Transfer : public Functions {

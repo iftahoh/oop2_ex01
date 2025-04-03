@@ -45,10 +45,12 @@ void SquaredMatrix::setMatrix() {
 const std::vector<int>& SquaredMatrix::operator[](size_t index) const {
 	return m_matrix[index];
 }
+
 //---------------------------------------------------------
 std::vector<int>& SquaredMatrix::operator[](size_t index) {
 	return m_matrix[index];
 }
+
 //---------------------------------------------------------
 SquaredMatrix operator+(const SquaredMatrix& lhs, const SquaredMatrix& rhs)
 {

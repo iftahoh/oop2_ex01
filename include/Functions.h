@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "SquaredMatrix.h"
 
 class Functions {
@@ -14,7 +13,10 @@ public:
 	virtual std::shared_ptr<Functions> clone() const = 0; // for clone
 	virtual void setNumOfMatrix(int num);
 	virtual int getNumOfMatrix() const;
+	bool ifPrinted();
+	void setPrinted(bool printed);
+
 private:
 	int m_numOfMatrix;
-
+	bool m_printed;
 };

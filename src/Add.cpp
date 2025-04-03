@@ -25,20 +25,31 @@ void Add::run(std::vector<SquaredMatrix>& matrices)
 	resultMatrix = matrices[0] + matrices[1];
 	std::cout << " = " << std::endl;
 	printTransMatrix(resultMatrix);
+	setPrinted(false);
 }
 
+//---------------------------------------------------------
 void Add::run1(SquaredMatrix& mat, std::vector<SquaredMatrix>& matrices)
 {
-	print();
-	m_addFunctions[0]->run1(mat, matrices);
-	m_addFunctions[1]->run1(mat, matrices);
-	SquaredMatrix resultMatrix(matrices[0].getSize());
-	resultMatrix = matrices[0] + matrices[1];
-	std::cout << std::endl;
-	std::cout << " = " << std::endl;
-	printTransMatrix(resultMatrix);
+	if (ifPrinted() == false)
+	{
+		print();
+		setPrinted(true);
+	}
+	m_addFunctions[0]->run1(matrices[0], matrices);
+	m_addFunctions[1]->run1(matrices[1], matrices);
+	if (ifPrinted() == false)
+	{
+		SquaredMatrix resultMatrix(matrices[0].getSize());
+		resultMatrix = matrices[0] + matrices[1];
+		std::cout << std::endl;
+		std::cout << " = " << std::endl;
+		printTransMatrix(resultMatrix);
+		setPrinted(true);
+	}
 }
 
+//---------------------------------------------------------
 void Add::print() const
 {	
 	std::cout << "(";
@@ -50,7 +61,5 @@ void Add::print() const
 			std::cout << " + ";
 		}
 	}
-	std::cout << ") ";
+	std::cout << ")";
 }
-
-

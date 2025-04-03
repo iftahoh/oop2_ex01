@@ -1,5 +1,4 @@
 #pragma once 
-
 #include "Functions.h"
 
 class Add : public Functions {

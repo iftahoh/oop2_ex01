@@ -1,6 +1,5 @@
 #pragma once
 #include "Functions.h"
-#include <iostream>
 
 class Sub : public Functions {
 public:

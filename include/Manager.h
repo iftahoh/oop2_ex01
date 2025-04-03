@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "Functions.h"
 #include "SquaredMatrix.h"
 
@@ -22,4 +21,3 @@ private:
 	void inputMatrix(int numOfMatrix, int matricsSize);
 	void printHelp();
 };
-

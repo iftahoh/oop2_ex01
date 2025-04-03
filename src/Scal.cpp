@@ -1,16 +1,16 @@
 #include "Scal.h"
 
-
-
 Scal::Scal(int scalar) : m_scalar(scalar)
 {
 	setNumOfMatrix(1);
 }
 
+//----------------------------------------------------------
 Scal::~Scal()
 {
 }
 
+//----------------------------------------------------------
 void Scal::run(std::vector<SquaredMatrix>& matrices) 
 {
 	
@@ -29,6 +29,7 @@ void Scal::run(std::vector<SquaredMatrix>& matrices)
 	printTransMatrix(temp);
 }
 
+//----------------------------------------------------------
 void Scal::run1(SquaredMatrix& mat , std::vector<SquaredMatrix>& matrices)
 {
 	SquaredMatrix scalMat = mat;
@@ -45,10 +46,8 @@ void Scal::run1(SquaredMatrix& mat , std::vector<SquaredMatrix>& matrices)
 	mat = scalMat;
 }
 
+//----------------------------------------------------------
 void Scal::print() const
 {
 	std::cout << "Scal " << m_scalar;
 }
-
-
-

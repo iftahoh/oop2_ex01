@@ -1,8 +1,9 @@
 #include "Functions.h"
 
 //---------------------------------------------------------
-Functions::Functions()
+Functions::Functions() : m_printed(false)
 {
+	m_numOfMatrix = 0;
 }
 
 //---------------------------------------------------------
@@ -10,6 +11,7 @@ Functions::~Functions()
 {
 }
 
+//---------------------------------------------------------
 void Functions::printTransMatrix(const SquaredMatrix& matrix) const
 {	
 	for (int i = 0; i < matrix.getSize(); i++)
@@ -22,13 +24,26 @@ void Functions::printTransMatrix(const SquaredMatrix& matrix) const
 	}
 }
 
+//---------------------------------------------------------
 void Functions::setNumOfMatrix(int num)
 {
 	m_numOfMatrix = num;
 }
 
+//---------------------------------------------------------
 int Functions::getNumOfMatrix() const
 {
 	return m_numOfMatrix;
 }
 
+//---------------------------------------------------------
+bool Functions::ifPrinted()
+{
+	return m_printed;
+}
+
+//---------------------------------------------------------
+void Functions::setPrinted(bool printed)
+{
+	m_printed = printed;
+}

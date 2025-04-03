@@ -1,4 +1,4 @@
-#include <iostream>
+#pragma once
 #include "Functions.h"
 
 class Id : public Functions {
