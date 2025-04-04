@@ -21,5 +21,6 @@ private:
 	void printNumOfMatrix(int num) const;
 	void inputMatrix(int numOfMatrix, int matricsSize);
 	void printHelp();
+	void printExit();
 };
 

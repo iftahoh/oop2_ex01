@@ -24,10 +24,10 @@ void Manager::run()
 	while (1)
 	{
 		//list of available matrix operations
-		std::cout << "List of available matrix operations:" << std::endl;
+		std::cout << std::endl << "List of available matrix operations:" << std::endl;
 		printCurrFunc();
 		//list of functions
-		std::cout << "Enter command ('help' for the list of available commands):" << std::endl;
+		std::cout << "Enter command ('help' for the list of available commands):";
 		//get input from user until pressed enter
 		std::string input;
 		std::cin >> input;
@@ -36,6 +36,10 @@ void Manager::run()
 			int func;
 			int matrixSize;
 			std::cin >> func >> matrixSize;
+			if (func >= m_functions.size()) {
+				std::cout << "Invalid function number." << std::endl;
+				continue;
+			}
 			int numOfMatrix;
 			numOfMatrix = m_functions[func]->getNumOfMatrix();
 			printNumOfMatrix(numOfMatrix);
@@ -52,18 +56,30 @@ void Manager::run()
 		{
 			int func1, func2;
 			std::cin >> func1 >> func2;
+			if (func1 >= m_functions.size() || func2 >= m_functions.size()) {
+				std::cout << "Invalid function numbers." << std::endl;
+				continue;
+			}
 			m_functions.push_back(std::make_shared<Add>(m_functions[func1], m_functions[func2]));
 		}
 		else if (input == "sub")
 		{
 			int func1, func2;
 			std::cin >> func1 >> func2;
+			if (func1 >= m_functions.size() || func2 >= m_functions.size()) {
+				std::cout << "Invalid function numbers." << std::endl;
+				continue;
+			}
 			m_functions.push_back(std::make_shared<Sub>(m_functions[func1], m_functions[func2]));
 		}
 		else if (input == "comp")
 		{
 			int func1, func2;
 			std::cin >> func1 >> func2;
+			if (func1 >= m_functions.size() || func2 >= m_functions.size()) {
+				std::cout << "Invalid function numbers." << std::endl;
+				continue;
+			}
 			m_functions.push_back(std::make_shared<Comp>(m_functions[func1], m_functions[func2]));
 				
 		}
@@ -81,7 +97,7 @@ void Manager::run()
 		}
 		else if (input == "exit")
 		{
-			std::cout << "Goodbye" << std::endl;
+			printExit();
 			break;
 		}
 		m_matrices.clear(); // clear the matrices for the next operation
@@ -91,13 +107,13 @@ void Manager::run()
 //---------------------------------------------------------
 void Manager::printCurrFunc() const
 {
-	std::cout << "Current functions:" << std::endl;
 	for (int i = 0; i < m_functions.size(); i++)
 	{
 		std::cout << i << ". ";
 		m_functions[i]->print();
 		std::cout << std::endl;
 	}
+	std::cout << std::endl;
 }
 
 //---------------------------------------------------------
@@ -138,4 +154,9 @@ void Manager::printHelp()
 	std::cout << "* del(ete) num - delete operation #num from the operation list" << std::endl;
 	std::cout << "* help - print this command list" << std::endl;
 	std::cout << "* exit - exit the program" << std::endl;
+}
+
+void Manager::printExit()
+{
+	std::cout << "Goodbye" << std::endl;
 }

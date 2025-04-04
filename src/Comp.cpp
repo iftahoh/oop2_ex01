@@ -6,7 +6,8 @@ Comp::Comp(std::shared_ptr<Functions>& func1, std::shared_ptr<Functions>& func2)
 {
 	m_compFunctions.push_back(func1->clone());
 	m_compFunctions.push_back(func2->clone());
-	setNumOfMatrix(1);
+	int numOfMatrix = func1->getNumOfMatrix() + func2->getNumOfMatrix();
+	setNumOfMatrix(numOfMatrix);
 }
 
 //---------------------------------------------------------
