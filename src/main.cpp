@@ -2,7 +2,11 @@
 
 int main()
 {
-	Manager manager;
-	manager.run();
-	return EXIT_SUCCESS;
+    // Create an instance of the Manager class
+    Manager manager;
+
+    // Call the 'run' method to start the manager's process
+    manager.run();
+
+    return EXIT_SUCCESS;
 }
